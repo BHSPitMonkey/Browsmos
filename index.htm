@@ -1,0 +1,122 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Browsmos</title>
+		<link rel="author" href="https://plus.google.com/105903021303554703114/">
+		<script src="Mover.js"></script>
+		<script src="Cell.js"></script>
+		<script src="World.js"></script>
+		<script src="Camera.js"></script>
+		<script src="MusicPlayer.js"></script>
+		<script>
+			// Engine globals
+			var fps = 30;
+			var mspf = 1000 / fps;
+			var updateInterval;
+			var center;
+			var viewport_radius;
+			
+			// Game globals
+			var world;
+			
+			// Setup function called when page loads
+			function main() {
+				var canvas = document.getElementById('canvas');
+				if (canvas.getContext) {
+					// Canvas Setup
+					canvas.height = window.innerHeight;
+					canvas.width = window.innerWidth;
+					center = [canvas.width/2, canvas.height/2];
+					
+					// Initialize the World
+					world = new World(canvas);
+					world.load_level();
+					
+					// Create requestAnimFrame if it doesn't exist
+					window.requestAnimFrame = (function(){
+						return  window.requestAnimationFrame   || 
+							window.webkitRequestAnimationFrame || 
+							window.mozRequestAnimationFrame    || 
+							window.oRequestAnimationFrame      || 
+							window.msRequestAnimationFrame     || 
+							function(/* function */ callback, /* DOMElement */ element){
+								window.setTimeout(callback, mspf);
+							};
+					})();
+					
+					// Animate!
+					(function animloop(){
+						world.update();
+						requestAnimFrame(animloop, canvas);
+					})();
+					// updateInterval = window.setInterval("world.update()", mspf);
+				}
+			}
+		</script>
+		<link rel="stylesheet" type="text/css" href="style.css">
+		<link id="favicon" rel="icon" type="image/png" href="icon_16.png" />
+		<meta name="viewport" content="width=450 , initial-scale=1, maximum-scale=1">
+	</head>
+	<body onload="main();">
+		<img id="logo" src="logo.png" alt="Browsmos" />
+		<canvas id="canvas">Sorry, no canvas for you!</canvas>
+		<ul id="controls">
+			<li id="help"><label>Help [H]</label></li>
+			<li id="pause"><label>Pause [P]</label></li>
+			<li id="newlevel"><label>New random level [R]</label></li>
+			<li id="mute"><label>Mute sounds [M]</label></li>
+		</ul>
+		<div id="songinfo" class="idle">
+			<div id="songtitle"></div>
+			<div id="songartist"></div>
+		</div>
+		<div id="pausedmessage" class="messages">
+			<p id="mainmessage">Paused</p>
+			<p id="subtext">Click here to resume playing.</p>
+		</div>
+		<div id="deathmessage" class="messages">
+			<p id="mainmessage">You were consumed!</p>
+			<p id="subtext">Click here to restart the level.</p>
+		</div>
+		<div id="warningmessage" class="messages">
+			<p id="mainmessage">Uhhhhh.</p>
+			<p id="subtext">You may just wanna click here to restart the level.</p>
+		</div>
+		<div id="successmessage" class="messages">
+			<p id="mainmessage">Good!</p>
+			<p id="subtext">Click here to start another random level.</p>
+		</div>
+		<div id="helpoverlay">
+			<div id="helpwindow">
+				<div id="helpheader">
+					<img id="helplogo" src="logo.png" alt="Browsmos" />
+				</div>
+				<div id="helpbody">
+					<div id="helpbody-inner">
+						<p>You are the <span style="color:#93FBFF">bright blue</span> cell in the center of the screen.</p>
+						<p>Your job is to absorb <span style="color:#73DBEF">smaller</span> cells, while avoiding getting absorbed by <span style="color:#FF6A48">larger</span> cells.</p>
+						<p>Become the biggest cell in the pond and you win!</p>
+						<h2>Controls</h2>
+						<p>Move by clicking on any side of your cell. You'll propel in the opposite direction.</p>
+						<p>Scroll using the mouse wheel to zoom.</p>
+						<h3>Keyboard Shortcuts</h3>
+							<p><span class="key">R</span> - Random new level</p>
+							<p><span class="key">P</span> - Pause</p>
+							<p><span class="key">M</span> - Mute sounds</p>
+							<p><span class="key">H</span> - Show this help again</p>
+						<h2>Install, More Info, and Reviews</h2>
+						<a style="display:block;text-align:center;margin-top:0.5em;" href="https://chrome.google.com/webstore/developer/detail/kmijdbjgikpiadlbldnmldfgfepigkip"><img src="http://code.google.com/chrome/webstore/images/branding/ChromeWebStore_BadgeWBorder_v2_206x58.png"></a>
+						<h2>Credits</h2>
+						<p>Browsmos is written and designed by <a href="http://stepheneisenhauer.com" target="_blank">Stephen Eisenhauer</a>, but inspired by an award-winning game called <a href="http://www.hemispheregames.com/osmos/" target="_blank">Osmos</a>, which is made by Hemisphere Games.</p>
+						<p><a href="http://www.hemispheregames.com/osmos/" target="_blank">Osmos</a> is a fantastic game, definitely worth checking out and buying!</p>
+						<p>Music is included from the <a href="http://ccmixter.org" target="_blank">ccMixter</a> community: <a href="http://ccmixter.org/files/Pitx/19513" name="Black Rainbow on ccMixter" target="_blank">"Black Rainbow"</a> by Pitx, and <a href="http://ccmixter.org/files/rewob/17808" name="Circles on ccMixter" target="_blank">"Circles"</a> by rewob.
+					</div>
+				</div>
+				<div id="helpfooter">
+					<button id="playbutton">Begin playing</button>
+				</div>
+			</div>
+		</div>
+		<footer><a href="http://stepheneisenhauer.com">An experiment by Stephen Eisenhauer</a></footer>
+	</body>
+</html>
