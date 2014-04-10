@@ -23,14 +23,14 @@ function World(canvas) {
 	this.shadows = true;
 	this.music = new MusicPlayer(
 		[	// Music tracks (filename, song name, artist)
-			['Pitx_-_Black_Rainbow.ogg', 'Black Rainbow', 'Pitx'], 
-			['rewob_-_Circles.ogg', 'Circles', 'rewob'],
+			['music/Pitx_-_Black_Rainbow.ogg', 'Black Rainbow', 'Pitx'], 
+			['music/rewob_-_Circles.ogg', 'Circles', 'rewob'],
 		], 
 		{	// Sound effects (identifier, filename)
-			'blip': ['blip.ogg'],
-			'win': ['win.ogg'],
-			'death': ['death.ogg'],
-			'bounce': ['bounce.ogg'],
+			'blip': ['fx/blip.ogg'],
+			'win': ['fx/win.ogg'],
+			'death': ['fx/death.ogg'],
+			'bounce': ['fx/bounce.ogg'],
 		}
 	);
 

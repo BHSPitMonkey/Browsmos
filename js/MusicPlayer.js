@@ -8,7 +8,7 @@ function MusicPlayer(songArray, sfxDict, assetDir) {
 	if (assetDir)
 		this.asset_dir = assetDir;
 	else
-		this.asset_dir = "assets/";
+		this.asset_dir = "snd/";
 	this.inited = false;
 	this.song_volume = this.default_volume;
 	

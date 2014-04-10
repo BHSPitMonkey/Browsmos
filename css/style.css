@@ -54,19 +54,19 @@ ul#controls li {
 	background-repeat:no-repeat;
 }
 ul#controls #newlevel {
-	background-image:url(assets/control-random.png);
+	background-image:url(../img/control-random.png);
 }
 ul#controls #pause {
-	background-image:url(assets/control-pause.png);
+	background-image:url(../img/control-pause.png);
 }
 ul#controls #help {
-	background-image:url(assets/control-help.png);
+	background-image:url(../img/control-help.png);
 }
 ul#controls #mute {
-	background-image:url(assets/control-mute.png);
+	background-image:url(../img/control-mute.png);
 }
 ul#controls #mute.muted {
-	background-image:url(assets/control-unmute.png);
+	background-image:url(../img/control-unmute.png);
 }
 ul#controls li label {
 	position:absolute;
