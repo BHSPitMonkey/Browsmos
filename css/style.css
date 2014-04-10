@@ -1,8 +1,11 @@
-* { margin:0; padding:0; }
+* {
+	margin:0; padding:0;
+}
 body, html {
 	height:100%;
 	color:white;
 	font-family:sans-serif;
+	overflow: hidden;
 }
 canvas {
 	background-color:black;
@@ -91,14 +94,12 @@ ul#controls li:hover label {
 }
 #helpwindow {
 	width:400px;
-	height:60%;
 	background-color:rgba(0,0,0,0.8);
 	position:absolute;
 	left:50%;
-	margin-top:20%;
-	margin-bottom:20%;
+	top:100px;
+	bottom:80px;
 	margin-left:-200px;
-	/* border-radius:16px; */
 	box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
 }
 #helpheader {
