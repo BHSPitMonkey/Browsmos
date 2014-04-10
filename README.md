@@ -19,7 +19,7 @@ Browsmos can also be installed as an app in Chromium or Google Chrome,
 requiring no internet connectivity to play. It can be installed via the 
 Chrome Web Store here:
 
-[![Available in the Chrome Web Store](https://developer.chrome.com/webstore/images/ChromeWebStore_Badge_v2_206x58.png)](https://chrome.google.com/webstore/developer/detail/kmijdbjgikpiadlbldnmldfgfepigkip)
+[![Available in the Chrome Web Store](https://developer.chrome.com/webstore/images/ChromeWebStore_Badge_v2_206x58.png)](https://chrome.google.com/webstore/detail/browsmos/kmijdbjgikpiadlbldnmldfgfepigkip)
 
 ## Screenshots
 
