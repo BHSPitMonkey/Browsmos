@@ -54,7 +54,11 @@ function World(canvas) {
 			document.getElementById("warningmessage").addEventListener('click', function() {world.load_level();}, false);
 			document.getElementById("successmessage").addEventListener('click', function() {world.load_level();}, false);
 			
-			document.getElementById("playbutton").addEventListener('click', function() {world.toggle_help();}, false);
+			document.getElementById("playbutton").addEventListener('click', function() {
+				world.toggle_help();
+				// Play a sound in order to allow any sound playback at all on iOS
+				world.music.play_sound("win");
+			}, false);
 		}
 		
 		this.music.init();
